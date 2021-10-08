@@ -91,11 +91,11 @@ class HttpClient
 
         $this->payloadParameters = array_merge($singlesPost, $compoundsPost);
 
-        $request = $this->getClient()->createRequest('GET', $url, [
+        $request = $this->getClient()->createRequest('POST', $url, [
             'future' => $nonBlocking,
             'timeout' => self::REQUEST_TIMEOUT_SECONDS,
             'connect_timeout' => self::REQUEST_TIMEOUT_SECONDS,
-            'query' => $this->payloadParameters,
+            'body' => $this->payloadParameters,
             'headers' => [
                 'User-Agent' => self::PHP_GA_MEASUREMENT_PROTOCOL_USER_AGENT,
             ],
