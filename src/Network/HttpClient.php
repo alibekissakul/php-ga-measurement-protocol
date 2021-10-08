@@ -86,12 +86,13 @@ class HttpClient
      * @param array $options
      * @return AnalyticsResponse
      */
-    public function post($url, array $options = [])
+    public function post($url, $body, array $options = [])
     {
         $request = new Request(
-            'GET',
+            'POST',
             $url,
-            ['User-Agent' => self::PHP_GA_MEASUREMENT_PROTOCOL_USER_AGENT]
+            ['User-Agent' => self::PHP_GA_MEASUREMENT_PROTOCOL_USER_AGENT],
+            $body
         );
 
         return $this->sendRequest($request, $options);

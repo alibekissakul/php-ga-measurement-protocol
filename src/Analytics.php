@@ -609,7 +609,7 @@ class Analytics
             return new NullAnalyticsResponse();
         }
 
-        return $this->getHttpClient()->post($this->getUrl(), $this->getHttpClientOptions());
+        return $this->getHttpClient()->post($this->getEndpoint(), $this->getUrl(true), $this->getHttpClientOptions());
     }
 
     /**
